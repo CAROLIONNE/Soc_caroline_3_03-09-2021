@@ -1,0 +1,232 @@
+@font-face {
+  font-family: "Shrikhand";
+  src: url("../Shrikhand-Regular.otf");
+}
+@font-face {
+  font-family: "roboto";
+  src: url("../roboto/Roboto-Regular.ttf");
+}
+* {
+  font-family: "roboto";
+  margin: 0;
+  padding: 0;
+}
+
+:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+header .nav {
+  text-align: center;
+}
+header .nav__logo {
+  width: 50%;
+  padding: 1rem;
+}
+header .nav__localisation {
+  background-color: #d9d9d9;
+  font-weight: bold;
+  color: black;
+}
+header .nav__localisation i {
+  padding: 1rem;
+}
+header .nav__title {
+  font-weight: bold;
+}
+header .nav__intro {
+  background-color: #ededed;
+  padding: 2rem;
+}
+header .nav__descr {
+  padding: 2rem;
+  opacity: 50%;
+}
+header .nav__button {
+  background: linear-gradient(350deg, #9356dc 19%, #ff79da 100%);
+  color: white;
+  border-radius: 2rem;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border: 0px;
+  transition: transform;
+  transform: scale(1);
+  transition-duration: 1000ms;
+}
+header .nav__button:hover {
+  transform: scale(1.5);
+  border: 0.2em solid #99E2D0;
+}
+
+.choices {
+  margin-top: 1.5em;
+}
+@media (min-width: 1024px) {
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.choices__title {
+  font-weight: bold;
+  padding-left: 0.7em;
+}
+@media (min-width: 1024px) {
+  .choices__title {
+    flex-basis: 100%;
+  }
+}
+.choices i {
+  padding-right: 1.5em;
+  color: #545454;
+  opacity: 80%;
+}
+.choices__card {
+  width: 16em;
+  display: flex;
+  background-color: #ededed;
+  padding: 1.5rem;
+  margin: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem #d9d9d9;
+  margin-left: auto;
+  margin-right: auto;
+}
+.choices__card:hover {
+  transform: scale(1.1);
+  transition: transform 500ms, background-color 400ms;
+  background-color: #e8dff2;
+  box-shadow: 0.3rem 0.3rem 0.3rem #545454;
+}
+.choices__card:hover i {
+  color: #9356DC;
+  opacity: 100%;
+}
+.choices__card-descr {
+  font-weight: bold;
+}
+.choices__card-number {
+  background-color: #9356DC;
+  border-radius: 4rem;
+  width: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  left: -2em;
+  padding: 0.1em;
+}
+
+.restaurant {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  background-color: #ededed;
+  padding: 1rem;
+}
+@media screen and (min-width: 720px) {
+  .restaurant {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+.restaurant__title {
+  padding-left: 0.7em;
+}
+@media screen and (min-width: 720px) {
+  .restaurant__title {
+    flex-basis: 100%;
+  }
+}
+.restaurant span {
+  position: relative;
+  top: -11em;
+  left: 11.5em;
+  padding: 0.4em;
+  background: #99E2D0;
+  font-weight: bold;
+  color: #278870;
+}
+.restaurant__card {
+  border-radius: 1rem;
+  margin: 1rem;
+  background-color: white;
+  width: 300px;
+  height: 200px;
+}
+.restaurant__card i {
+  position: relative;
+  top: -1.5em;
+  left: 10em;
+  font-size: 25px;
+}
+.restaurant__card-title {
+  font-weight: bold;
+  padding: 0.3rem;
+}
+.restaurant__card-descr {
+  padding: 0.3rem;
+}
+.restaurant__photo {
+  width: 100%;
+  height: 130px;
+  border-radius: 1rem 1rem 0 0;
+  object-fit: cover;
+}
+
+.footer {
+  background-color: #353535;
+  color: white;
+  padding: 2rem;
+}
+@media (min-width: 1024px) {
+  .footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+@media (min-width: 720px) and (max-width: 1024px) {
+  .footer {
+    text-align: center;
+    margin: 1em;
+  }
+}
+.footer__title {
+  font-family: "Shrikhand";
+  padding-bottom: 0.5rem;
+}
+@media screen and (min-width: 1024px) {
+  .footer__title {
+    font-size: 1.5rem;
+  }
+}
+.footer__liste {
+  list-style: none;
+}
+@media (min-width: 1024px) {
+  .footer__liste {
+    display: flex;
+  }
+}
+.footer__liste_element {
+  padding: 0.3rem;
+}
+@media (min-width: 1024px) {
+  .footer__liste_element {
+    padding: 0;
+    padding-left: 4rem;
+  }
+}
+.footer__liste_element i {
+  width: 1.5em;
+}
+.footer__liste_element a:visited {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,222 @@
+@font-face {
+    font-family: "Shrikhand";
+    src: url("../Shrikhand-Regular.otf");
+}
+@font-face {
+    font-family: "roboto";
+    src: url("../roboto/Roboto-Regular.ttf");
+}
+* {
+    font-family: "roboto";
+    margin: 0;
+    padding: 0;
+}
+:link {
+    text-decoration: none;
+    color:black;
+}
+a:visited {color:black;}
+
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+$color-bg:#ededed;
+$color-bg-light:lighten(#ededed, 3%);
+$dark-color-bg:darken(#ededed,8%);
+$very-dark-color-bg:darken($color-bg, 60%);
+$color-tertiary-dark:darken($color-tertiary,40%);
+$min-tablet:720px;
+$max-tablet:1024px;
+
+
+header{
+    .nav{
+        text-align: center;
+        &__logo{
+            width:50%;
+            padding:1rem;        
+        }
+        &__localisation{
+            background-color: $dark-color-bg;        
+            font-weight: bold;
+            color:black;                       
+            i {
+                padding:1rem;
+            }
+        }
+        &__title{
+            font-weight: bold;
+        }
+        &__intro{
+            background-color: $color-bg;
+            padding: 2rem;
+        }
+        &__descr{
+            padding: 2rem;
+            opacity: 50%;
+        }
+        &__button{
+            background: linear-gradient(350deg, rgba(147,86,220,1) 19%, rgba(255,121,218,1) 100%);
+            color:white;
+            border-radius: 2rem;
+            font-size: 1rem;
+            padding:0.8rem;
+            border:0px;
+            transition: transform ;
+            transform:scale(1) ;
+            transition-duration:1000ms ;
+            &:hover{
+                transform:scale(1.5);
+               
+               border:0.2em solid $color-tertiary;
+            }
+        }
+    }
+}
+.choices {
+     margin-top:1.5em;
+        @media (min-width:$max-tablet) {
+            display:flex;
+            flex-wrap: wrap;
+        }
+    &__title{
+        font-weight: bold;
+        padding-left: 0.7em;
+            @media (min-width:$max-tablet){
+                flex-basis: 100%;
+            }
+    }
+    i {
+        padding-right: 1.5em;
+        color: $very-dark-color-bg;
+        opacity: 80%;
+    } 
+    &__card{
+        width: 16em;
+        display: flex;
+        background-color:$color-bg;
+        padding:1.5rem;
+        margin:1.5rem;
+        border-radius: 1.5rem;
+        box-shadow: 0.3rem 0.3rem 0.3rem $dark-color-bg ; 
+        margin-left: auto;
+        margin-right: auto;
+        
+        &:hover {
+            transform: scale(1.10);
+            transition: transform 500ms, background-color 400ms;
+            background-color: #e8dff2;
+            box-shadow: 0.3rem 0.3rem 0.3rem $very-dark-color-bg;
+            i {color:$color-primary;
+            opacity: 100%;}
+        }
+        &-descr {
+            font-weight: bold;
+
+        }
+        &-number {
+            background-color: $color-primary;
+            border-radius: 4rem;
+            width: 20px;
+            color:white;
+            text-align: center;
+            position: relative;
+            left:-2em;
+            padding: 0.1em;
+        }
+    }
+}
+.restaurant{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content:center;
+    background-color: $color-bg;
+    padding:1rem;
+        @media screen and (min-width:$min-tablet) {
+            flex-direction:row;
+            justify-content: space-around;
+        }
+    
+    &__title{
+        padding-left: 0.7em;
+            @media screen and (min-width:$min-tablet)  {
+                flex-basis: 100%;
+            }
+    }
+    span {
+        position: relative;
+        top:-11em;
+        left:11.5em;
+        padding:0.4em;
+        background: $color-tertiary;
+        font-weight: bold;
+        color:$color-tertiary-dark;
+    }
+    &__card{
+        border-radius: 1rem;
+        margin:1rem;
+        background-color: white;
+        width: 300px;
+        height: 200px;
+        
+        i {
+            position:relative;
+            top:-1.5em;
+            left: 10em;
+            font-size:25px;
+        }
+        &-title {
+            font-weight: bold;
+            padding: 0.3rem;
+        }
+        &-descr {
+            padding:0.3rem;
+        }
+    }
+    &__photo{
+        width: 100%;
+        height: 130px;
+        border-radius:1rem 1rem 0 0;
+        object-fit: cover;
+    }
+}
+.footer{
+    background-color: #353535;
+    color:white;
+    padding: 2rem;
+        @media (min-width:$max-tablet) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        @media (min-width:$min-tablet) and (max-width:$max-tablet){
+            text-align: center;
+            margin: 1em;
+        }
+    &__title{
+    font-family:"Shrikhand";
+    padding-bottom: 0.5rem;
+        @media screen and (min-width:$max-tablet) {
+            font-size: 1.5rem;
+        }
+    }
+    &__liste{
+        list-style: none;
+        @media (min-width:$max-tablet) {
+            display: flex;
+        }
+        &_element{
+            padding:0.3rem;
+            @media (min-width:$max-tablet) {
+                padding:0;
+                padding-left: 4rem;
+                
+            }
+            i {
+                width: 1.5em;
+            }
+            & a:visited {
+            color:white;}
+        }
+    }
+}
