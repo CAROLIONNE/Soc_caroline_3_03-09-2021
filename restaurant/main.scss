@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "Shrikhand";
+    src: url("../Shrikhand-Regular.otf");
+}
+@font-face {
+    font-family: "roboto";
+    src: url("../roboto/Roboto-Regular.ttf");
+}
+* {
+    font-family: "roboto";
+    margin: 0;
+    padding: 0;
+}
+@mixin card {
+        background: white;
+        margin:1em;
+        border-radius: 1em;
+        padding:1em;
+    }
+
+$color-tertiary: #99E2D0;
+$color-bg:#ededed;
+$min-tablet:720px;
+$max-tablet:1024px;
+
+header{
+    display: flex;
+    i {
+        position: absolute;
+        top:25px;
+        left:1em;
+        font-size:1.3em;
+        cursor: pointer;
+    }
+    a:active {
+        color:$color-tertiary;
+    }
+        .logo{
+            padding:1rem;
+            font-family: Shrikhand;
+            font-size: 2em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+}
+.picture {
+    width: 100%;
+}
+main{
+    background: $color-bg;
+    border-radius: 2em 2em 0 0;
+    position: relative;
+    top: -4em;   
+    H2{
+        font-family: Shrikhand;
+        padding-top: 1em;
+        display: flex;
+        justify-content: center;
+        i {margin-left: 1em;}
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        margin-bottom: -4em;
+        input {
+            background: linear-gradient(350deg, rgba(147,86,220,1) 19%, rgba(255,121,218,1) 100%);
+            color:white;
+            border-radius: 2rem;
+            font-size: 1rem;
+            padding:0.8rem;
+            border:0px;
+            margin-bottom: 1em;
+            padding-right: 2.5em;
+            padding-left: 2.5em;
+            cursor: pointer;
+        }
+    }
+}
+.menu{
+        padding: 1em;
+        H3 {
+            opacity: 50%;
+            text-transform: uppercase;
+            padding: 1em;
+         }
+        &-item { @include card;} 
+        &-title {
+            font-weight: bold;
+        }
+        &-descr{
+            font-size: 0.8em;
+        }
+        &-price{
+            font-weight: bold;
+        }
+    }
+.footer{
+    background-color: #353535;
+    color:white;
+    padding: 2rem;
+        @media (min-width:$max-tablet) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        @media (min-width:$min-tablet) and (max-width:$max-tablet){
+            text-align: center;
+            margin: 1em;
+        }
+    &__title{
+    font-family:"Shrikhand";
+    padding-bottom: 0.5rem;
+        @media screen and (min-width:$max-tablet) {
+            font-size: 1.5rem;
+        }
+    }
+    &__liste{
+        list-style: none;
+        @media (min-width:$max-tablet) {
+            display: flex;
+        }
+        &_element{
+            padding:0.3rem;
+            @media (min-width:$max-tablet) {
+                padding:0;
+                padding-left: 4rem;           
+            }
+            i {
+                width: 1.5em;
+            }
+            a {
+                color:white;
+                text-decoration: none;
+            }
+            a:visited {
+            color:white;}
+        }
+    }
+}
