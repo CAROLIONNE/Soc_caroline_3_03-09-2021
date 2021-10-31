@@ -30,12 +30,14 @@ $max-tablet:1024px;
 
 
 header{
-    .nav{
-        text-align: center;
-        &__logo{
+    text-align: center;
+        .logo{
             width:50%;
-            padding:1rem;        
+            padding:1rem;     
         }
+}
+.nav{
+    text-align: center;
         &__localisation{
             background-color: $dark-color-bg;        
             font-weight: bold;
@@ -62,17 +64,17 @@ header{
             font-size: 1rem;
             padding:0.8rem;
             border:0px;
-            transition: transform ;
+            cursor: pointer;
+            transition: transform 800ms;
             transform:scale(1) ;
-            transition-duration:1000ms ;
+            
             &:hover{
-                transform:scale(1.5);
-               
-               border:0.2em solid $color-tertiary;
+                transform:scale(1.3);
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                
             }
         }
     }
-}
 .choices {
      margin-top:1.5em;
         @media (min-width:$max-tablet) {
@@ -104,9 +106,11 @@ header{
         
         &:hover {
             transform: scale(1.10);
-            transition: transform 500ms, background-color 400ms;
+            transition: transform 500ms, background-color 400ms 100ms, box-shadow 300ms 150ms;
             background-color: #e8dff2;
-            box-shadow: 0.3rem 0.3rem 0.3rem $very-dark-color-bg;
+            backface-visibility: hidden;
+            
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
             i {color:$color-primary;
             opacity: 100%;}
         }
@@ -209,11 +213,13 @@ header{
             padding:0.3rem;
             @media (min-width:$max-tablet) {
                 padding:0;
-                padding-left: 4rem;
-                
+                padding-left: 4rem;           
             }
             i {
                 width: 1.5em;
+            }
+            a {
+                color: white;
             }
             & a:visited {
             color:white;}
