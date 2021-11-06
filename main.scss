@@ -27,13 +27,107 @@ $very-dark-color-bg:darken($color-bg, 60%);
 $color-tertiary-dark:darken($color-tertiary,40%);
 $min-tablet:720px;
 $max-tablet:1024px;
+$size:4em;
+$size-desktop:6em;
 
+@mixin size-ball {
+    width: $size;
+    height: $size;
+    border-radius: $size /2;
+}
+@mixin size-ball-desktop {
+    width: $size-desktop;
+    height: $size-desktop;
+    border-radius: $size-desktop /2;
+}
+@keyframes spin{
+    0%{
+        transform: scale(0.2) translateY(0);
+    }
+    50%{
+        transform: scale(0.6) translateY(10%);
+    }
+    100%{
+        transform: scale(0.2) translateY(0%) ;
+    }
+}
+@keyframes loader{
+    100%{
+        opacity: 0;
+        z-index: -10;
+    }
+}
+/*
+body :not(.spinner) {
+    animation: loader 3s alternate-reverse;
+}*/
 
+.spinner{
+    animation: loader 50ms both 3000ms;
+    position: fixed;
+    top: 10em;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    height: auto;
+    padding-top:2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border:$color-bg 0.2em solid;
+    border-radius: 1em;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    overflow: hidden;
+    
+    &__title{
+        flex-basis: 100%;
+        padding:1em;
+        font-family: Shrikhand;
+        font-size: 2em;
+        letter-spacing: 1px;
+        @media (min-width:$min-tablet) {
+            font-size: 3em;
+        }
+    }
+    &__ball-1{
+        animation: spin 1500ms ease-in-out backwards;
+         ;
+        background-color: $color-primary;
+        @include size-ball;
+        @media (min-width:$min-tablet){
+            @include size-ball-desktop;
+        }
+    }
+    &__ball-2{
+        animation: spin 1500ms ease-in-out backwards;
+        animation-delay:500ms;
+        background-color: $color-secondary;
+        @include size-ball;
+        @media (min-width:$min-tablet){
+            @include size-ball-desktop;
+        }
+    }
+    &__ball-3{
+        animation: spin 1500ms ease-in-out backwards;
+        background-color: $color-tertiary;
+        animation-delay:1000ms;
+        @include size-ball;
+        @media (min-width:$max-tablet){
+            @include size-ball-desktop;
+        }
+    }
+}
 header{
     text-align: center;
         .logo{
-            width:50%;
-            padding:1rem;     
+            padding:1rem;
+            font-family: Shrikhand;
+            font-size: 2em;
+            letter-spacing: 1px;
         }
 }
 .nav{
@@ -65,11 +159,11 @@ header{
             padding:0.8rem;
             border:0px;
             cursor: pointer;
-            transition: transform 800ms;
+            transition: transform 400ms;
             transform:scale(1) ;
             
             &:hover{
-                transform:scale(1.3);
+                transform:scale(1.2);
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
                 
             }
@@ -102,21 +196,20 @@ header{
         border-radius: 1.5rem;
         box-shadow: 0.3rem 0.3rem 0.3rem $dark-color-bg ; 
         margin-left: auto;
-        margin-right: auto;
-        
+        margin-right: auto; 
+        cursor: pointer;   
         &:hover {
-            transform: scale(1.10);
-            transition: transform 500ms, background-color 400ms 100ms, box-shadow 300ms 150ms;
+            transform: scale(1.02);
+            transition: transform 350ms, background-color 300ms 200ms , box-shadow 250ms 150ms;
             background-color: #e8dff2;
             backface-visibility: hidden;
-            
             box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-            i {color:$color-primary;
-            opacity: 100%;}
+            i {
+                color:$color-primary;
+            }
         }
         &-descr {
             font-weight: bold;
-
         }
         &-number {
             background-color: $color-primary;
@@ -130,6 +223,17 @@ header{
         }
     }
 }
+@keyframes slow-card{
+    from{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    to{
+        opacity: 1;
+        
+    }
+}
+
 .restaurant{
     display: flex;
     flex-direction: column;
@@ -141,7 +245,9 @@ header{
             flex-direction:row;
             justify-content: space-around;
         }
-    
+    &__heart-full{
+        visibility: hidden;
+    }
     &__title{
         padding-left: 0.7em;
             @media screen and (min-width:$min-tablet)  {
@@ -149,33 +255,79 @@ header{
             }
     }
     span {
-        position: relative;
-        top:-11em;
-        left:11.5em;
+        position: absolute;
+        top:7px;
+        right:1em;
         padding:0.4em;
         background: $color-tertiary;
         font-weight: bold;
         color:$color-tertiary-dark;
+        border-radius: 0.2em;
+        @media (min-width:$max-tablet) {
+            top:20px;
+            font-size:1.2em;
+        }
     }
     &__card{
+        animation: slow-card 1500ms backwards;
         border-radius: 1rem;
         margin:1rem;
         background-color: white;
-        width: 300px;
-        height: 200px;
+        width: 90%;
+        position: relative;
+        @media (min-width: $min-tablet){
+            max-width: 310px;
+        }
+        @media (min-width:$max-tablet) {
+            max-width: 400px;
+        }
         
         i {
-            position:relative;
-            top:-1.5em;
-            left: 10em;
+            position:absolute;
+            top:75%;
+            right: 1em;
             font-size:25px;
+            @media (min-width:$max-tablet) {
+                top: 86%;
+            }
+            &:hover{
+                animation: like 1100ms ease-in forwards;
+                font-weight: bold;  
+                visibility: visible;
+                }
+            :not(:hover){
+                
+                
+            }
         }
+        
         &-title {
             font-weight: bold;
             padding: 0.3rem;
         }
         &-descr {
             padding:0.3rem;
+            padding-bottom: 0.6em;
+        }
+    }
+    @keyframes like{
+        5%{
+            opacity: 0;
+            color:$color-primary 
+        }
+        50%{
+            
+        }
+        80%{
+            transform: scale(1);
+        }
+        90%{
+            opacity: 1;
+            transform: scale(1.4);
+        }
+        100%{
+            transform: scale(1);
+            color: $color-secondary;
         }
     }
     &__photo{
@@ -183,6 +335,9 @@ header{
         height: 130px;
         border-radius:1rem 1rem 0 0;
         object-fit: cover;
+        @media (min-width:$max-tablet){
+            height:250px;
+        }
     }
 }
 .footer{
@@ -210,16 +365,23 @@ header{
             display: flex;
         }
         &_element{
-            padding:0.3rem;
+            margin:0.5rem;
+            cursor: pointer;
+            &:hover{
+                color:$color-tertiary;
+                font-style:italic ;
+            }
             @media (min-width:$max-tablet) {
-                padding:0;
-                padding-left: 4rem;           
+                margin-left:4rem;       
             }
             i {
                 width: 1.5em;
             }
             a {
                 color: white;
+                &:hover{
+                    color:$color-tertiary
+                }
             }
             & a:visited {
             color:white;}

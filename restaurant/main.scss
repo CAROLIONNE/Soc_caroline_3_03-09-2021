@@ -41,16 +41,29 @@ header{
             font-size: 2em;
             margin-left: auto;
             margin-right: auto;
+            letter-spacing: 1px;
         }
 }
 .picture {
     width: 100%;
+    object-fit: cover;
+}
+@keyframes slow-card{
+    from{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    to{
+        opacity: 1;
+        
+    }
 }
 main{
     background: $color-bg;
     border-radius: 2em 2em 0 0;
     position: relative;
     top: -4em;   
+    
     H2{
         font-family: Shrikhand;
         padding-top: 1em;
@@ -76,14 +89,28 @@ main{
         }
     }
 }
+@for $i from 1 through 3{
+    .menu-#{$i} {
+        animation: slow-card 1500ms backwards;
+    }
+}
 .menu{
         padding: 1em;
+        &-2{
+            animation-delay: 500ms;
+        }
+        &-3{
+            animation-delay: 1000ms;
+        }
         H3 {
             opacity: 50%;
             text-transform: uppercase;
             padding: 1em;
          }
-        &-item { @include card;} 
+        &-item { 
+            @include card;
+            
+        } 
         &-title {
             font-weight: bold;
         }

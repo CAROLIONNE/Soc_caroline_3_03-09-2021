@@ -31,12 +31,23 @@ header .logo {
   font-size: 2em;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: 1px;
 }
 
 .picture {
   width: 100%;
+  object-fit: cover;
 }
 
+@keyframes menu {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+  }
+}
 main {
   background: #ededed;
   border-radius: 2em 2em 0 0;
@@ -70,8 +81,26 @@ main .btn input {
   cursor: pointer;
 }
 
+.menu-1 {
+  animation: menu 1500ms backwards;
+}
+
+.menu-2 {
+  animation: menu 1500ms backwards;
+}
+
+.menu-3 {
+  animation: menu 1500ms backwards;
+}
+
 .menu {
   padding: 1em;
+}
+.menu-2 {
+  animation-delay: 500ms;
+}
+.menu-3 {
+  animation-delay: 1000ms;
 }
 .menu H3 {
   opacity: 50%;
