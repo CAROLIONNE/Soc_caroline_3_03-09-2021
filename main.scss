@@ -57,6 +57,7 @@ $size-desktop:6em;
         z-index: -10;
     }
 }
+
 /*
 body :not(.spinner) {
     animation: loader 3s alternate-reverse;
@@ -233,7 +234,10 @@ header{
         
     }
 }
-
+@keyframes hidden{
+    0%{visibility: visible;}
+    
+}
 .restaurant{
     display: flex;
     flex-direction: column;
@@ -247,6 +251,12 @@ header{
         }
     &__heart-full{
         visibility: hidden;
+        transition: visibility 1500ms;
+        &:hover{
+            visibility: visible;
+
+            
+        }
     }
     &__title{
         padding-left: 0.7em;
@@ -292,13 +302,8 @@ header{
             }
             &:hover{
                 animation: like 1100ms ease-in forwards;
-                font-weight: bold;  
-                visibility: visible;
+                font-weight: bold;              
                 }
-            :not(:hover){
-                
-                
-            }
         }
         
         &-title {
@@ -311,9 +316,9 @@ header{
         }
     }
     @keyframes like{
-        5%{
+        0%{
             opacity: 0;
-            color:$color-primary 
+            color:$color-primary;
         }
         50%{
             
@@ -379,6 +384,7 @@ header{
             }
             a {
                 color: white;
+                text-decoration: none;
                 &:hover{
                     color:$color-tertiary
                 }

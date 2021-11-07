@@ -11,12 +11,6 @@
     margin: 0;
     padding: 0;
 }
-@mixin card {
-        background: white;
-        margin:1em;
-        border-radius: 1em;
-        padding:1em;
-    }
 
 $color-tertiary: #99E2D0;
 $color-bg:#ededed;
@@ -29,10 +23,17 @@ header{
         position: absolute;
         top:25px;
         left:1em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
         font-size:1.3em;
         cursor: pointer;
+        transition: transform 200ms ease-in-out;
     }
-    a:active {
+    a:hover {
+        color:$color-tertiary;
+        transform:translateX(-15px) ;
+    }
+    a:active{
         color:$color-tertiary;
     }
         .logo{
@@ -42,11 +43,15 @@ header{
             margin-left: auto;
             margin-right: auto;
             letter-spacing: 1px;
+
         }
 }
 .picture {
     width: 100%;
     object-fit: cover;
+    @media (min-width:$min-tablet){
+        height: 320px;
+    }
 }
 @keyframes slow-card{
     from{
@@ -66,10 +71,12 @@ main{
     
     H2{
         font-family: Shrikhand;
-        padding-top: 1em;
+        padding:1em;
         display: flex;
         justify-content: center;
-        i {margin-left: 1em;}
+        i {
+            margin-left: 1em;
+        }
     }
     .btn{
         display: flex;
@@ -94,33 +101,107 @@ main{
         animation: slow-card 1500ms backwards;
     }
 }
+@mixin border {
+    border-bottom:0.2em solid $color-tertiary;
+    width:3em;
+    margin-left: 1.2em;
+    margin-top: 0.2em;
+}
+@mixin menu-title{
+    padding-left: 1em;
+    opacity: 50%;
+    text-transform: uppercase;
+}
+@mixin card {
+    background: white;
+    margin:1em;
+    border-radius: 1em;
+    padding:0.7em;
+}
+@keyframes checked {
+    0%{
+        visibility: visible;
+    }
+    3%{
+        transform: translateX (0em);
+    }
+    5%{
+        transform: rotate (1turn);
+    }
+    50%{
+        transform: translateX (1em);
+    }
+    100%{
+        transform: translateX (0em);
+    }
+}
 .menu{
-        padding: 1em;
-        &-2{
-            animation-delay: 500ms;
+
+    &-border {
+        @include border;
         }
-        &-3{
-            animation-delay: 1000ms;
+    &-1{
+        padding: 0.5em;
+        H3{
+            @include menu-title;
         }
-        H3 {
-            opacity: 50%;
-            text-transform: uppercase;
-            padding: 1em;
-         }
-        &-item { 
-            @include card;
-            
-        } 
-        &-title {
-            font-weight: bold;
-        }
-        &-descr{
-            font-size: 0.8em;
-        }
-        &-price{
-            font-weight: bold;
+    }       
+    &-2{
+        animation-delay: 500ms;
+        padding: 0.5em;
+        H3{
+            @include menu-title;
         }
     }
+    &-3{
+        animation-delay: 1000ms;
+        padding: 0.5em;
+        H3{
+            @include menu-title;
+        }
+    }
+    &-check{
+        position: absolute;
+        right:0;
+        top:0em;
+        border-radius: 0 1em 1em 0;
+        display: flex;
+        justify-content: center;
+        width: 4.4em;
+        height: 4.4em;
+        visibility: hidden;
+        background-color: $color-tertiary;
+        &:hover{
+            animation: checked 2s alternate both;
+        }
+        i{
+            color: white;
+            background-color: $color-tertiary;
+            align-self: center;
+            transform: rotate (1turn);
+            font-size: x-large;
+        }
+    }
+    &-item { 
+        cursor: pointer;
+        @include card;
+        position: relative;
+    } 
+    &-name {
+        font-weight: bold;
+        font-size: 1.2em;
+        padding-bottom:0.3em;
+    }
+    &-descr{            
+        opacity: 0.8;
+    }
+    &-price{
+        font-weight: bold;
+        position: absolute;
+        right:3em;
+        font-size:1.2em;
+    }
+}
 .footer{
     background-color: #353535;
     color:white;
@@ -146,7 +227,12 @@ main{
             display: flex;
         }
         &_element{
-            padding:0.3rem;
+            margin:0.5rem;
+            cursor: pointer;
+            &:hover{
+                color:$color-tertiary;
+                font-style:italic ;
+            }
             @media (min-width:$max-tablet) {
                 padding:0;
                 padding-left: 4rem;           
@@ -157,6 +243,9 @@ main{
             a {
                 color:white;
                 text-decoration: none;
+                &:hover{
+                    color:$color-tertiary
+                }
             }
             a:visited {
             color:white;}
