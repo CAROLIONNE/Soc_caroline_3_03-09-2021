@@ -105,23 +105,6 @@ main .btn input {
   animation: slow-card 1500ms backwards;
 }
 
-@keyframes checked {
-  0% {
-    visibility: visible;
-  }
-  3% {
-    transform: translateX 0em;
-  }
-  5% {
-    transform: rotate 1turn;
-  }
-  50% {
-    transform: translateX 1em;
-  }
-  100% {
-    transform: translateX 0em;
-  }
-}
 .menu-border {
   border-bottom: 0.2em solid #99E2D0;
   width: 3em;
@@ -156,25 +139,26 @@ main .btn input {
 }
 .menu-check {
   position: absolute;
-  right: 0;
-  top: 0em;
-  border-radius: 0 1em 1em 0;
+  right: -70px;
+  top: 0;
   display: flex;
   justify-content: center;
   width: 4.4em;
   height: 4.4em;
   visibility: hidden;
   background-color: #99E2D0;
-}
-.menu-check:hover {
-  animation: checked 2s alternate both;
+  transform: translateX(-2);
+  transition: all 1s ease-in-out;
 }
 .menu-check i {
   color: white;
   background-color: #99E2D0;
   align-self: center;
-  transform: rotate 1turn;
   font-size: x-large;
+  transition: transform 1s;
+}
+.menu-check i:hover {
+  transform: rotate(1turn);
 }
 .menu-item {
   cursor: pointer;
@@ -183,6 +167,15 @@ main .btn input {
   border-radius: 1em;
   padding: 0.7em;
   position: relative;
+  overflow: hidden;
+}
+.menu-item:hover > .menu-check {
+  transform: translateX(0);
+  visibility: visible;
+  margin-right: 4.4em;
+}
+.menu-item:hover > .menu-check .menu-check > i {
+  transform: rotate(0turn);
 }
 .menu-name {
   font-weight: bold;

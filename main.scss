@@ -42,47 +42,57 @@ $size-desktop:6em;
 }
 @keyframes spin{
     0%{
-        transform: scale(0.2) translateY(0);
+        transform: scale(0.2) translateY(0) ;
     }
     50%{
         transform: scale(0.6) translateY(10%);
     }
     100%{
-        transform: scale(0.2) translateY(0%) ;
-    }
-}
-@keyframes loader{
-    100%{
-        opacity: 0;
-        z-index: -10;
+        transform: scale(0.2) translateY(0%);
+         
     }
 }
 
-/*
-body :not(.spinner) {
-    animation: loader 3s alternate-reverse;
-}*/
+@keyframes hidden{
+    0%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        height: 100%;
+        
+    }
+}
+
+@keyframes loader {
+    100% {
+      z-index: -10;
+      opacity: 0;
+    }
+  }
+.container {
+    visibility: visible;
+    animation: hidden 3.5s ;
+}
 
 .spinner{
     animation: loader 50ms both 3000ms;
     position: fixed;
-    top: 10em;
+    top: 8em;
     z-index: 999;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    height: auto;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
     padding-top:2em;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border:$color-bg 0.2em solid;
+    border:$dark-color-bg 0.2em solid;
     border-radius: 1em;
     flex-wrap: wrap;
-    margin-left: auto;
-    margin-right: auto;
     background: white;
-    overflow: hidden;
     
     &__title{
         flex-basis: 100%;
@@ -90,13 +100,13 @@ body :not(.spinner) {
         font-family: Shrikhand;
         font-size: 2em;
         letter-spacing: 1px;
+        text-align: center;
         @media (min-width:$min-tablet) {
             font-size: 3em;
         }
     }
     &__ball-1{
         animation: spin 1500ms ease-in-out backwards;
-         ;
         background-color: $color-primary;
         @include size-ball;
         @media (min-width:$min-tablet){
@@ -117,7 +127,7 @@ body :not(.spinner) {
         background-color: $color-tertiary;
         animation-delay:1000ms;
         @include size-ball;
-        @media (min-width:$max-tablet){
+        @media (min-width:$min-tablet){
             @include size-ball-desktop;
         }
     }
@@ -164,7 +174,7 @@ header{
             transform:scale(1) ;
             
             &:hover{
-                transform:scale(1.2);
+                transform:scale(1.1);
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
                 
             }
@@ -224,20 +234,7 @@ header{
         }
     }
 }
-@keyframes slow-card{
-    from{
-        opacity: 0;
-        transform: translateY(-1rem);
-    }
-    to{
-        opacity: 1;
-        
-    }
-}
-@keyframes hidden{
-    0%{visibility: visible;}
-    
-}
+
 .restaurant{
     display: flex;
     flex-direction: column;
@@ -249,15 +246,7 @@ header{
             flex-direction:row;
             justify-content: space-around;
         }
-    &__heart-full{
-        visibility: hidden;
-        transition: visibility 1500ms;
-        &:hover{
-            visibility: visible;
 
-            
-        }
-    }
     &__title{
         padding-left: 0.7em;
             @media screen and (min-width:$min-tablet)  {
@@ -279,12 +268,18 @@ header{
         }
     }
     &__card{
-        animation: slow-card 1500ms backwards;
         border-radius: 1rem;
         margin:1rem;
-        background-color: white;
+        background-color: #fff;
         width: 90%;
         position: relative;
+        transform: scale(1);
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            transform: scale(1.05);
+            border: $very-dark-color-bg 1px solid;
+            box-shadow: 10px 12px 16px -7px rgba(0,0,0,0.75);
+        }
         @media (min-width: $min-tablet){
             max-width: 310px;
         }
@@ -301,7 +296,7 @@ header{
                 top: 86%;
             }
             &:hover{
-                animation: like 1100ms ease-in forwards;
+                animation: like 1100ms both;
                 font-weight: bold;              
                 }
         }
@@ -319,9 +314,6 @@ header{
         0%{
             opacity: 0;
             color:$color-primary;
-        }
-        50%{
-            
         }
         80%{
             transform: scale(1);

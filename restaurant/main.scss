@@ -118,23 +118,7 @@ main{
     border-radius: 1em;
     padding:0.7em;
 }
-@keyframes checked {
-    0%{
-        visibility: visible;
-    }
-    3%{
-        transform: translateX (0em);
-    }
-    5%{
-        transform: rotate (1turn);
-    }
-    50%{
-        transform: translateX (1em);
-    }
-    100%{
-        transform: translateX (0em);
-    }
-}
+
 .menu{
 
     &-border {
@@ -162,30 +146,41 @@ main{
     }
     &-check{
         position: absolute;
-        right:0;
-        top:0em;
-        border-radius: 0 1em 1em 0;
+        right:-70px;
+        top:0;
         display: flex;
         justify-content: center;
         width: 4.4em;
         height: 4.4em;
         visibility: hidden;
         background-color: $color-tertiary;
-        &:hover{
-            animation: checked 2s alternate both;
-        }
+        transform: translateX(-2);
+        transition: all 1s ease-in-out;
+
         i{
             color: white;
             background-color: $color-tertiary;
             align-self: center;
-            transform: rotate (1turn);
             font-size: x-large;
+            transition: transform 1s;
+            &:hover{
+                transform: rotate(1turn);
+            }
         }
     }
     &-item { 
         cursor: pointer;
         @include card;
         position: relative;
+        overflow: hidden;
+        &:hover > .menu-check{
+            transform: translateX(0);
+            visibility: visible;
+            margin-right: 4.4em;
+            .menu-check > i {
+                transform: rotate(0turn);
+            }
+        }
     } 
     &-name {
         font-weight: bold;
