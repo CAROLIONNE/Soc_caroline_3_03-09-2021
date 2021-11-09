@@ -59,8 +59,7 @@ header{
         transform: translateY(-1rem);
     }
     to{
-        opacity: 1;
-        
+        opacity: 1;       
     }
 }
 main{
@@ -73,9 +72,9 @@ main{
         font-family: Shrikhand;
         padding:1em;
         display: flex;
-        justify-content: center;
         i {
-            margin-left: 1em;
+            position: absolute;
+            right:1em;
         }
     }
     .btn{
@@ -93,6 +92,12 @@ main{
             padding-right: 2.5em;
             padding-left: 2.5em;
             cursor: pointer;
+            transition: transform 400ms;
+            transform:scale(1);          
+            &:hover{
+                transform:scale(1.1);
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;       
+            }
         }
     }
 }
@@ -101,31 +106,30 @@ main{
         animation: slow-card 1500ms backwards;
     }
 }
-@mixin border {
-    border-bottom:0.2em solid $color-tertiary;
-    width:3em;
-    margin-left: 1.2em;
-    margin-top: 0.2em;
-}
 @mixin menu-title{
     padding-left: 1em;
     opacity: 50%;
     text-transform: uppercase;
 }
-@mixin card {
-    background: white;
-    margin:1em;
-    border-radius: 1em;
-    padding:0.7em;
+@mixin media-width{
+    @media (min-width:$max-tablet){
+        width: 98%;
+    }
 }
-
 .menu{
-
+    @media (min-width: $max-tablet){
+        display: flex;
+        justify-content: space-around;
+    }
     &-border {
-        @include border;
+        border-bottom:0.2em solid $color-tertiary;
+        width:3em;
+        margin-left: 1.2em;
+        margin-top: 0.2em;
         }
     &-1{
         padding: 0.5em;
+        @include media-width;
         H3{
             @include menu-title;
         }
@@ -133,6 +137,8 @@ main{
     &-2{
         animation-delay: 500ms;
         padding: 0.5em;
+        @include media-width;
+
         H3{
             @include menu-title;
         }
@@ -140,6 +146,7 @@ main{
     &-3{
         animation-delay: 1000ms;
         padding: 0.5em;
+        @include media-width;
         H3{
             @include menu-title;
         }
@@ -154,47 +161,60 @@ main{
         height: 4.4em;
         visibility: hidden;
         background-color: $color-tertiary;
-        transform: translateX(-2);
-        transition: all 1s ease-in-out;
-
+        transition: all 500ms ease-in-out ;
         i{
             color: white;
             background-color: $color-tertiary;
             align-self: center;
             font-size: x-large;
-            transition: transform 1s;
-            &:hover{
-                transform: rotate(1turn);
-            }
+            transition: all 600ms ease-out;
         }
     }
     &-item { 
         cursor: pointer;
-        @include card;
+        background: white;
+        margin:1em;
+        border-radius: 1em;
+        padding:0.7em;
         position: relative;
         overflow: hidden;
-        &:hover > .menu-check{
-            transform: translateX(0);
-            visibility: visible;
-            margin-right: 4.4em;
-            .menu-check > i {
-                transform: rotate(0turn);
+        &:hover > .menu{            
+             &-check {
+                visibility: visible;
+                margin-right: 4.4em;
+                i {
+                    transform: rotate(1turn);
+                }
+            }            
+             &-price{
+                margin-right: 3em;
             }
         }
-    } 
+    }
     &-name {
         font-weight: bold;
         font-size: 1.2em;
         padding-bottom:0.3em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
     }
     &-descr{            
         opacity: 0.8;
+        min-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
     &-price{
         font-weight: bold;
         position: absolute;
-        right:3em;
+        right:1em;
+        top: 1.5em;
         font-size:1.2em;
+        transition: all 500ms ease-in-out;
+        
     }
 }
 .footer{

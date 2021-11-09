@@ -199,16 +199,13 @@ header{
         opacity: 80%;
     } 
     &__card{
-        width: 16em;
         display: flex;
         background-color:$color-bg;
         padding:1.5rem;
         margin:1.5rem;
         border-radius: 1.5rem;
-        box-shadow: 0.3rem 0.3rem 0.3rem $dark-color-bg ; 
-        margin-left: auto;
-        margin-right: auto; 
-        cursor: pointer;   
+        box-shadow: 0.3rem 0.3rem 0.3rem $dark-color-bg; 
+        cursor: pointer;
         &:hover {
             transform: scale(1.02);
             transition: transform 350ms, background-color 300ms 200ms , box-shadow 250ms 150ms;
@@ -221,11 +218,15 @@ header{
         }
         &-descr {
             font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         &-number {
             background-color: $color-primary;
             border-radius: 4rem;
             width: 20px;
+            min-width: 20px;
             color:white;
             text-align: center;
             position: relative;
