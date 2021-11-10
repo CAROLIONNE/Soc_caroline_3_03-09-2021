@@ -169,7 +169,7 @@ header{
             padding:0.8rem;
             border:0px;
             cursor: pointer;
-            transition: transform 400ms;
+            transition: transform 400ms ease-in-out;
             transform:scale(1) ;
             
             &:hover{
@@ -185,6 +185,7 @@ header{
             display:flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            padding-bottom: 2em;
         }
     &__title{
         font-weight: bold;
@@ -250,13 +251,15 @@ header{
     align-content:center;
     background-color: $color-bg;
     padding:1rem;
-        @media screen and (min-width:$min-tablet) {
+        @media  (min-width:$min-tablet) {
             flex-direction:row;
             justify-content: space-around;
+            border-radius: 1em;
+        }
+        @media (min-width:$min-tablet) and (max-width:$max-tablet) {
             margin: 1em;
             border-radius: 1em;
         }
-
     &__title{
         padding-left: 0.7em;
             @media screen and (min-width:$min-tablet)  {

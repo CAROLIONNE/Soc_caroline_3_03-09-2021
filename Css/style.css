@@ -168,7 +168,7 @@ header .logo {
   padding: 0.8rem;
   border: 0px;
   cursor: pointer;
-  transition: transform 400ms;
+  transition: transform 400ms ease-in-out;
   transform: scale(1);
 }
 .nav__button:hover {
@@ -184,6 +184,7 @@ header .logo {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-bottom: 2em;
   }
 }
 .choices__title {
@@ -254,10 +255,15 @@ header .logo {
   background-color: #ededed;
   padding: 1rem;
 }
-@media screen and (min-width: 720px) {
+@media (min-width: 720px) {
   .restaurant {
     flex-direction: row;
     justify-content: space-around;
+    border-radius: 1em;
+  }
+}
+@media (min-width: 720px) and (max-width: 1024px) {
+  .restaurant {
     margin: 1em;
     border-radius: 1em;
   }
