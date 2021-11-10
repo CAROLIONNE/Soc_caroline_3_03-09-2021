@@ -135,7 +135,6 @@ header {
 header .logo {
   padding: 1rem;
   font-family: Shrikhand;
-  font-size: 2em;
   letter-spacing: 1px;
 }
 
@@ -191,9 +190,11 @@ header .logo {
   font-weight: bold;
   padding-left: 0.7em;
 }
-@media (min-width: 1024px) {
+@media (min-width: 720px) {
   .choices__title {
     flex-basis: 100%;
+    margin: 0.5rem;
+    font-size: 1.5em;
   }
 }
 .choices i {
@@ -209,6 +210,13 @@ header .logo {
   border-radius: 1.5rem;
   box-shadow: 0.3rem 0.3rem 0.3rem #d9d9d9;
   cursor: pointer;
+}
+@media (min-width: 720px) {
+  .choices__card {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 .choices__card:hover {
   transform: scale(1.02);
@@ -250,6 +258,8 @@ header .logo {
   .restaurant {
     flex-direction: row;
     justify-content: space-around;
+    margin: 1em;
+    border-radius: 1em;
   }
 }
 .restaurant__title {
@@ -258,6 +268,9 @@ header .logo {
 @media screen and (min-width: 720px) {
   .restaurant__title {
     flex-basis: 100%;
+    margin: 0.5rem;
+    font-size: 1.5em;
+    padding-left: 0em;
   }
 }
 .restaurant span {
@@ -293,7 +306,7 @@ header .logo {
 }
 @media (min-width: 720px) {
   .restaurant__card {
-    max-width: 310px;
+    max-width: 296px;
   }
 }
 @media (min-width: 1024px) {
@@ -396,7 +409,7 @@ header .logo {
 }
 @media (min-width: 1024px) {
   .footer__liste_element {
-    margin-left: 4rem;
+    margin-left: 3rem;
   }
 }
 .footer__liste_element i {

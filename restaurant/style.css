@@ -71,6 +71,11 @@ main H2 {
   padding: 1em;
   display: flex;
 }
+@media (min-width: 1024px) {
+  main H2 {
+    justify-content: center;
+  }
+}
 main H2 i {
   position: absolute;
   right: 1em;
@@ -85,11 +90,9 @@ main .btn input {
   color: white;
   border-radius: 2rem;
   font-size: 1rem;
-  padding: 0.8rem;
+  padding: 0.8rem 2.5rem;
   border: 0px;
-  margin-bottom: 1em;
-  padding-right: 2.5em;
-  padding-left: 2.5em;
+  margin: 1.5em;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
@@ -113,6 +116,7 @@ main .btn input:hover {
   .menu {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 }
 .menu-border {
@@ -126,7 +130,7 @@ main .btn input:hover {
 }
 @media (min-width: 1024px) {
   .menu-1 {
-    width: 98%;
+    width: 45%;
   }
 }
 .menu-1 H3 {
@@ -140,7 +144,7 @@ main .btn input:hover {
 }
 @media (min-width: 1024px) {
   .menu-2 {
-    width: 98%;
+    width: 45%;
   }
 }
 .menu-2 H3 {
@@ -154,7 +158,7 @@ main .btn input:hover {
 }
 @media (min-width: 1024px) {
   .menu-3 {
-    width: 98%;
+    width: 45%;
   }
 }
 .menu-3 H3 {
@@ -164,13 +168,12 @@ main .btn input:hover {
 }
 .menu-check {
   position: absolute;
-  right: -70px;
-  top: 0;
+  right: -4em;
   display: flex;
   justify-content: center;
-  width: 4.4em;
-  height: 4.4em;
-  visibility: hidden;
+  align-items: center;
+  width: 4em;
+  height: 4em;
   background-color: #99E2D0;
   transition: all 500ms ease-in-out;
 }
@@ -186,13 +189,12 @@ main .btn input:hover {
   background: white;
   margin: 1em;
   border-radius: 1em;
-  padding: 0.7em;
-  position: relative;
+  display: flex;
   overflow: hidden;
+  position: relative;
 }
 .menu-item:hover > .menu-check {
-  visibility: visible;
-  margin-right: 4.4em;
+  margin-right: 4em;
 }
 .menu-item:hover > .menu-check i {
   transform: rotate(1turn);
@@ -200,28 +202,44 @@ main .btn input:hover {
 .menu-item:hover > .menu-price {
   margin-right: 3em;
 }
+.menu-description {
+  padding: 0.5em;
+  width: 100%;
+  overflow: hidden;
+}
 .menu-name {
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1em;
   padding-bottom: 0.3em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+@media (min-width: 720px) {
+  .menu-name {
+    font-size: 1.2em;
+  }
+}
 .menu-descr {
   opacity: 0.8;
-  min-width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: 0.8em;
+}
+@media (min-width: 720px) {
+  .menu-descr {
+    font-size: 1em;
+  }
 }
 .menu-price {
   font-weight: bold;
-  position: absolute;
-  right: 1em;
-  top: 1.5em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   font-size: 1.2em;
   transition: all 500ms ease-in-out;
+  padding: 0.5em;
 }
 
 .footer {
@@ -269,7 +287,7 @@ main .btn input:hover {
 @media (min-width: 1024px) {
   .footer__liste_element {
     padding: 0;
-    padding-left: 4rem;
+    padding-left: 3rem;
   }
 }
 .footer__liste_element i {
