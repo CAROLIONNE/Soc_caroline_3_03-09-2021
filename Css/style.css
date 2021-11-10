@@ -302,11 +302,10 @@ header .logo {
   width: 90%;
   position: relative;
   overflow: hidden;
-  transform: scale(1);
   transition: all 0.3s ease-in-out;
 }
 .restaurant__card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
   border: #545454 1px solid;
   box-shadow: 10px 12px 16px -7px rgba(0, 0, 0, 0.75);
 }
@@ -352,12 +351,12 @@ header .logo {
     transform: scale(1);
   }
   90% {
-    opacity: 1;
     transform: scale(1.4);
   }
   100% {
     transform: scale(1);
     color: #FF79DA;
+    opacity: 1;
   }
 }
 .restaurant__photo {

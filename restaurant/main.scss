@@ -11,7 +11,8 @@
     margin: 0;
     padding: 0;
 }
-
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
 $color-bg:#ededed;
 $min-tablet:720px;
@@ -19,23 +20,23 @@ $max-tablet:1024px;
 
 header{
     display: flex;
-    i {
-        position: absolute;
-        top:25px;
-        left:1em;
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        font-size:1.3em;
-        cursor: pointer;
-        transition: transform 200ms ease-in-out;
-    }
-    a:hover {
-        color:$color-tertiary;
-        transform:translateX(-15px) ;
-    }
-    a:active{
-        color:$color-tertiary;
-    }
+        i {
+            position: absolute;
+            top:25px;
+            left:1em;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+            font-size:1.3em;
+            cursor: pointer;
+            transition: transform 200ms ease-in-out;
+        }
+        a:hover {
+            color:$color-tertiary;
+            transform:translateX(-15px) ;
+        }
+        a:active{
+            color:$color-tertiary;
+        }
         .logo{
             padding:1rem;
             font-family: Shrikhand;
@@ -43,9 +44,10 @@ header{
             margin-left: auto;
             margin-right: auto;
             letter-spacing: 1px;
-
         }
+
 }
+
 .picture {
     width: 100%;
     object-fit: cover;
@@ -62,6 +64,23 @@ header{
         opacity: 1;       
     }
 }
+@keyframes like{
+    0%{
+        opacity: 0;
+        color:$color-primary;
+    }
+    80%{
+        transform: scale(1);
+    }
+    90%{           
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+        color: $color-secondary;
+        opacity: 1;
+    }
+}
 main{
     background: $color-bg;
     border-radius: 2em 2em 0 0;
@@ -72,12 +91,18 @@ main{
         font-family: Shrikhand;
         padding:1em;
         display: flex;
+        justify-content: space-between;
         @media (min-width:$max-tablet) {
             justify-content: center;
         }
         i {
-            position: absolute;
-            right:1em;
+            &:hover{
+                animation: like 1100ms both;
+                font-weight: bold;            
+            }
+            @media (min-width:$max-tablet){
+                margin-left:1em;
+            }
         }
     }
     .btn{
@@ -93,8 +118,7 @@ main{
             border:0px;
             margin: 1.5em;
             cursor: pointer;
-            transition: all 200ms ease-in-out;
-                     
+            transition: all 200ms ease-in-out;                    
             &:hover{
                 opacity: 0.8;
             }
@@ -159,7 +183,7 @@ main{
         justify-content: center;
         align-items: center;
         width: 4em;
-        height: 3.5em;
+        height: 4em;
         background-color: $color-tertiary;
         transition: all 500ms ease-in-out;
         i{

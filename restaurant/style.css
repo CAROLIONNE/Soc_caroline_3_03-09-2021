@@ -60,6 +60,23 @@ header .logo {
     opacity: 1;
   }
 }
+@keyframes like {
+  0% {
+    opacity: 0;
+    color: #9356DC;
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+    color: #FF79DA;
+    opacity: 1;
+  }
+}
 main {
   background: #ededed;
   border-radius: 2em 2em 0 0;
@@ -70,15 +87,21 @@ main H2 {
   font-family: Shrikhand;
   padding: 1em;
   display: flex;
+  justify-content: space-between;
 }
 @media (min-width: 1024px) {
   main H2 {
     justify-content: center;
   }
 }
-main H2 i {
-  position: absolute;
-  right: 1em;
+main H2 i:hover {
+  animation: like 1100ms both;
+  font-weight: bold;
+}
+@media (min-width: 1024px) {
+  main H2 i {
+    margin-left: 1em;
+  }
 }
 main .btn {
   display: flex;
@@ -173,7 +196,7 @@ main .btn input:hover {
   justify-content: center;
   align-items: center;
   width: 4em;
-  height: 3.5em;
+  height: 4em;
   background-color: #99E2D0;
   transition: all 500ms ease-in-out;
 }
