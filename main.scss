@@ -21,8 +21,8 @@ $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
 $color-bg:#ededed;
-$color-bg-light:lighten(#ededed, 3%);
-$dark-color-bg:darken(#ededed,8%);
+$color-bg-light:lighten($color-bg, 3%);
+$dark-color-bg:darken($color-bg,8%);
 $very-dark-color-bg:darken($color-bg, 60%);
 $color-tertiary-dark:darken($color-tertiary,40%);
 $min-tablet:720px;
@@ -251,14 +251,16 @@ header{
     align-content:center;
     background-color: $color-bg;
     padding:1rem;
-        @media  (min-width:$min-tablet) {
+        @media  (min-width:$min-tablet) and (max-width:$max-tablet) {
             flex-direction:row;
             justify-content: space-around;
-            border-radius: 1em;
-        }
-        @media (min-width:$min-tablet) and (max-width:$max-tablet) {
+            border-radius: 2em;
             margin: 1em;
-            border-radius: 1em;
+        }
+        @media (min-width:$max-tablet) {
+            display: grid;
+            grid-template: auto 1fr 1fr / 1fr 1fr;
+            gap: 2em;
         }
     &__title{
         padding-left: 0.7em;
@@ -267,6 +269,9 @@ header{
                 margin: 0.5rem;
                 font-size: 1.5em;
                 padding-left: 0em;
+            }
+            @media (min-width:$max-tablet){
+                grid-column: 1/3;
             }
     }
     span {
@@ -289,9 +294,10 @@ header{
         background-color: #fff;
         width: 90%;
         position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease-in-out;
+        transform: scale(1);
+        transition: all 0.3s ease-in;
         &:hover{
+            z-index: 2;
             transform: scale(1.1);
             border: $very-dark-color-bg 1px solid;
             box-shadow: 10px 12px 16px -7px rgba(0,0,0,0.75);
@@ -302,6 +308,7 @@ header{
         }
         @media (min-width:$max-tablet) {
             max-width: 400px;
+            justify-self: center;
         }       
         i {
             position:absolute;
