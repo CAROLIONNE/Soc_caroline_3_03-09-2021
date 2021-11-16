@@ -74,9 +74,8 @@ $size-desktop:6em;
   }
 .container {
     visibility: visible;
-    animation: hidden 3.5s ;
+    animation: hidden 3.5s ease-in;
 }
-
 .spinner{
     animation: loader 50ms both 3000ms;
     position: fixed;

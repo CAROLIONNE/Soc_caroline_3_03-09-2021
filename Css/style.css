@@ -51,7 +51,7 @@ a:visited {
 }
 .container {
   visibility: visible;
-  animation: hidden 3.5s;
+  animation: hidden 3.5s ease-in;
 }
 
 .spinner {

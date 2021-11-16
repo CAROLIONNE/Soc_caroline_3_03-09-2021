@@ -44,8 +44,10 @@ header{
             margin-left: auto;
             margin-right: auto;
             letter-spacing: 1px;
+            @media (min-width:$min-tablet) {
+                font-size: 3em;
+            }
         }
-
 }
 
 .picture {
@@ -92,15 +94,16 @@ main{
         padding:1em;
         display: flex;
         justify-content: space-between;
-        @media (min-width:$max-tablet) {
+        @media (min-width:$min-tablet) {
             justify-content: center;
+            font-size: 2em;
         }
         i {
             &:hover{
                 animation: like 1100ms both;
                 font-weight: bold;            
             }
-            @media (min-width:$max-tablet){
+            @media (min-width:$min-tablet){
                 margin-left:1em;
             }
         }
