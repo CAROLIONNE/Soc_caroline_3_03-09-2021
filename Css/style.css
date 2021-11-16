@@ -21,6 +21,9 @@ a:visited {
   color: black;
 }
 
+/*Variables*/
+/*Mixins*/
+/*Keyframes*/
 @keyframes spin {
   0% {
     transform: scale(0.2) translateY(0);
@@ -47,6 +50,23 @@ a:visited {
   100% {
     z-index: -10;
     opacity: 0;
+  }
+}
+@keyframes like {
+  0% {
+    opacity: 0;
+    color: #9356DC;
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+    color: #FF79DA;
+    opacity: 1;
   }
 }
 .container {
@@ -350,23 +370,6 @@ header .logo {
 .restaurant__card-descr {
   padding: 0.3rem;
   padding-bottom: 0.6em;
-}
-@keyframes like {
-  0% {
-    opacity: 0;
-    color: #9356DC;
-  }
-  80% {
-    transform: scale(1);
-  }
-  90% {
-    transform: scale(1.4);
-  }
-  100% {
-    transform: scale(1);
-    color: #FF79DA;
-    opacity: 1;
-  }
 }
 .restaurant__photo {
   width: 100%;

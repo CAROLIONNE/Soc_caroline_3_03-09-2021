@@ -17,6 +17,7 @@
 }
 a:visited {color:black;}
 
+/*Variables*/
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
@@ -30,6 +31,7 @@ $max-tablet:1024px;
 $size:4em;
 $size-desktop:6em;
 
+/*Mixins*/
 @mixin size-ball {
     width: $size;
     height: $size;
@@ -40,6 +42,7 @@ $size-desktop:6em;
     height: $size-desktop;
     border-radius: $size-desktop /2;
 }
+/*Keyframes*/
 @keyframes spin{
     0%{
         transform: scale(0.2) translateY(0) ;
@@ -52,7 +55,6 @@ $size-desktop:6em;
          
     }
 }
-
 @keyframes hidden{
     0%{
         opacity: 0;
@@ -65,13 +67,29 @@ $size-desktop:6em;
         
     }
 }
-
 @keyframes loader {
     100% {
       z-index: -10;
       opacity: 0;
     }
   }
+  @keyframes like{
+    0%{
+        opacity: 0;
+        color:$color-primary;
+    }
+    80%{
+        transform: scale(1);
+    }
+    90%{           
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+        color: $color-secondary;
+        opacity: 1;
+    }
+}
 .container {
     visibility: visible;
     animation: hidden 3.5s ease-in;
@@ -169,12 +187,10 @@ header{
             border:0px;
             cursor: pointer;
             transition: transform 400ms ease-in-out;
-            transform:scale(1) ;
-            
+            transform:scale(1) ;           
             &:hover{
                 transform:scale(1.1);
-                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-                
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;            
             }
         }
     }
@@ -242,7 +258,6 @@ header{
         }
     }
 }
-
 .restaurant{
     display: flex;
     flex-direction: column;
@@ -299,8 +314,7 @@ header{
             z-index: 2;
             transform: scale(1.1);
             border: $very-dark-color-bg 1px solid;
-            box-shadow: 10px 12px 16px -7px rgba(0,0,0,0.75);
-            
+            box-shadow: 10px 12px 16px -7px rgba(0,0,0,0.75);           
         }
         @media (min-width: $min-tablet){
             max-width: 296px;
@@ -329,23 +343,6 @@ header{
         &-descr {
             padding:0.3rem;
             padding-bottom: 0.6em;
-        }
-    }
-    @keyframes like{
-        0%{
-            opacity: 0;
-            color:$color-primary;
-        }
-        80%{
-            transform: scale(1);
-        }
-        90%{           
-            transform: scale(1.4);
-        }
-        100%{
-            transform: scale(1);
-            color: $color-secondary;
-            opacity: 1;
         }
     }
     &__photo{

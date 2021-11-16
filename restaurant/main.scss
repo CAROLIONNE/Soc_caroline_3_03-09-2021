@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
 }
+/*Variables*/
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
@@ -49,7 +50,6 @@ header{
             }
         }
 }
-
 .picture {
     width: 100%;
     object-fit: cover;
@@ -88,7 +88,6 @@ main{
     border-radius: 2em 2em 0 0;
     position: relative;
     top: -4em;   
-    
     H2{
         font-family: Shrikhand;
         padding:1em;
@@ -128,11 +127,7 @@ main{
         }
     }
 }
-@for $i from 1 through 3{
-    .menu-#{$i} {
-        animation: slow-card 1500ms backwards;
-    }
-}
+/*Mixins*/
 @mixin menu-title{
     padding-left: 1em;
     opacity: 50%;
@@ -141,6 +136,17 @@ main{
 @mixin media-width{
     @media (min-width:$max-tablet){
         width: 45%;
+    }
+}
+/*Boucle*/
+@for $i from 1 through 3{
+    .menu-#{$i} {
+        animation: slow-card 1500ms backwards;
+        padding: 0.5em;
+        @include media-width;
+        H3{
+            @include menu-title;
+        }
     }
 }
 .menu{
@@ -154,30 +160,12 @@ main{
         width:3em;
         margin-left: 1.2em;
         margin-top: 0.2em;
-        }
-    &-1{
-        padding: 0.5em;
-        @include media-width;
-        H3{
-            @include menu-title;
-        }
-    }       
+        }   
     &-2{
         animation-delay: 500ms;
-        padding: 0.5em;
-        @include media-width;
-
-        H3{
-            @include menu-title;
-        }
     }
     &-3{
         animation-delay: 1000ms;
-        padding: 0.5em;
-        @include media-width;
-        H3{
-            @include menu-title;
-        }
     }
     &-check{
         position: absolute;

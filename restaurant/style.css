@@ -12,6 +12,7 @@
   padding: 0;
 }
 
+/*Variables*/
 header {
   display: flex;
 }
@@ -129,16 +130,51 @@ main .btn input:hover {
   opacity: 0.8;
 }
 
+/*Mixins*/
+/*Boucle*/
 .menu-1 {
   animation: slow-card 1500ms backwards;
+  padding: 0.5em;
+}
+@media (min-width: 1024px) {
+  .menu-1 {
+    width: 45%;
+  }
+}
+.menu-1 H3 {
+  padding-left: 1em;
+  opacity: 50%;
+  text-transform: uppercase;
 }
 
 .menu-2 {
   animation: slow-card 1500ms backwards;
+  padding: 0.5em;
+}
+@media (min-width: 1024px) {
+  .menu-2 {
+    width: 45%;
+  }
+}
+.menu-2 H3 {
+  padding-left: 1em;
+  opacity: 50%;
+  text-transform: uppercase;
 }
 
 .menu-3 {
   animation: slow-card 1500ms backwards;
+  padding: 0.5em;
+}
+@media (min-width: 1024px) {
+  .menu-3 {
+    width: 45%;
+  }
+}
+.menu-3 H3 {
+  padding-left: 1em;
+  opacity: 50%;
+  text-transform: uppercase;
 }
 
 @media (min-width: 1024px) {
@@ -154,46 +190,11 @@ main .btn input:hover {
   margin-left: 1.2em;
   margin-top: 0.2em;
 }
-.menu-1 {
-  padding: 0.5em;
-}
-@media (min-width: 1024px) {
-  .menu-1 {
-    width: 45%;
-  }
-}
-.menu-1 H3 {
-  padding-left: 1em;
-  opacity: 50%;
-  text-transform: uppercase;
-}
 .menu-2 {
   animation-delay: 500ms;
-  padding: 0.5em;
-}
-@media (min-width: 1024px) {
-  .menu-2 {
-    width: 45%;
-  }
-}
-.menu-2 H3 {
-  padding-left: 1em;
-  opacity: 50%;
-  text-transform: uppercase;
 }
 .menu-3 {
   animation-delay: 1000ms;
-  padding: 0.5em;
-}
-@media (min-width: 1024px) {
-  .menu-3 {
-    width: 45%;
-  }
-}
-.menu-3 H3 {
-  padding-left: 1em;
-  opacity: 50%;
-  text-transform: uppercase;
 }
 .menu-check {
   position: absolute;
