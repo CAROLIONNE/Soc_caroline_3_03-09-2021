@@ -101,6 +101,9 @@ main H2 {
     font-size: 2em;
   }
 }
+main H2 i {
+  cursor: pointer;
+}
 main H2 i:hover {
   animation: like 1100ms both;
   font-weight: bold;
@@ -128,6 +131,7 @@ main .btn input {
 }
 main .btn input:hover {
   opacity: 0.8;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 /*Mixins*/

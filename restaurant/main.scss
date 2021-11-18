@@ -98,6 +98,7 @@ main{
             font-size: 2em;
         }
         i {
+            cursor: pointer;
             &:hover{
                 animation: like 1100ms both;
                 font-weight: bold;            
@@ -123,6 +124,7 @@ main{
             transition: all 200ms ease-in-out;                    
             &:hover{
                 opacity: 0.8;
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
             }
         }
     }
